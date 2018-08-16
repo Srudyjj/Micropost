@@ -33,7 +33,7 @@ function submitPost(e) {
     if (id === '') {
       http.post('https://my-json-server.typicode.com/Srudyjj/MicropostApi/posts/', data)
       .then(data => {
-        console.log(data);
+        
         
         ui.showAlert("Post updated", "alert alert-success");
         ui.clearFields();
@@ -43,7 +43,7 @@ function submitPost(e) {
     } else {
       http.put(`https://my-json-server.typicode.com/Srudyjj/MicropostApi/posts/${id}`, data)
       .then(data => {
-        console.log(data);
+        
         ui.showAlert("Post added", "alert alert-success");
         ui.changeFormState('add');
         getPosts();
@@ -65,7 +65,7 @@ function deletePost(e) {
     if(confirm('Are you sure?')) {
       http.delete(`https://my-json-server.typicode.com/Srudyjj/MicropostApi/posts/${id}`)
         .then(data => {
-          console.log(data);
+          
           ui.showAlert('Post removed', 'alert alert-success');
           getPosts();
         })
