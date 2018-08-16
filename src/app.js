@@ -13,7 +13,7 @@ document.querySelector('#posts').addEventListener('click', enableEdit);
 document.querySelector('.card-form').addEventListener('click', cancelEdit);
 
 function getPosts() {
-  http.get('https://my-json-server.typicode.com/Srudyjj/MicropostApi/posts/')
+  http.get('https://jsonrestapi.herokuapp.com/posts')
   .then(data => ui.showPosts(data))
   .catch(err => console.log(err))
 };
@@ -31,7 +31,7 @@ function submitPost(e) {
     }
 
     if (id === '') {
-      http.post('https://my-json-server.typicode.com/Srudyjj/MicropostApi/posts/', data)
+      http.post('https://jsonrestapi.herokuapp.com/posts', data)
       .then(data => {
         
         
@@ -41,7 +41,7 @@ function submitPost(e) {
       })
       .catch(err => console.log(err))
     } else {
-      http.put(`https://my-json-server.typicode.com/Srudyjj/MicropostApi/posts/${id}`, data)
+      http.put(`https://jsonrestapi.herokuapp.com/posts/${id}`, data)
       .then(data => {
         
         ui.showAlert("Post added", "alert alert-success");
@@ -63,7 +63,7 @@ function deletePost(e) {
   if(e.target.parentElement.classList.contains('delete')) {
     const id = e.target.parentElement.dataset.id;
     if(confirm('Are you sure?')) {
-      http.delete(`https://my-json-server.typicode.com/Srudyjj/MicropostApi/posts/${id}`)
+      http.delete(`https://jsonrestapi.herokuapp.com/posts/${id}`)
         .then(data => {
           
           ui.showAlert('Post removed', 'alert alert-success');
